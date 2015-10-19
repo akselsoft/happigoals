@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Goal:</strong>
+  <%= @goaltemplate.goal %>
+</p>
+
+<p>
+  <strong>Area:</strong>
+  <%= @goaltemplate.area %>
+</p>
+
+<%= link_to 'Edit', edit_goaltemplate_path(@goaltemplate) %> |
+<%= link_to 'Back', goaltemplates_path %>

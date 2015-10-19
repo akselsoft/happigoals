@@ -1,0 +1,25 @@
+<%= form_for(@goaltemplate) do |f| %>
+  <% if @goaltemplate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@goaltemplate.errors.count, "error") %> prohibited this goaltemplate from being saved:</h2>
+
+      <ul>
+      <% @goaltemplate.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :goal %><br>
+    <%= f.text_field :goal, class:"form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :area %><br>
+    <%= f.text_field :area, class:"form-control" %>
+  </div>
+  <div class="actions">
+    <%= f.submit class:"btn btn-primary"%>
+  </div>
+<% end %>

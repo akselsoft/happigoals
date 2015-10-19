@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151019072754) do
+ActiveRecord::Schema.define(version: 20151019075554) do
+
+  create_table "days", force: :cascade do |t|
+    t.string   "goal"
+    t.string   "good"
+    t.string   "bad"
+    t.string   "actions"
+    t.string   "regret"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "goaltemplates", force: :cascade do |t|
+    t.string   "goal"
+    t.string   "area"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
