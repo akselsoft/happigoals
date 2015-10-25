@@ -10,6 +10,10 @@
       </ul>
     </div>
   <% end %>
+  <div class="form-group">
+    <%= f.label :day %><br>
+    <%= f.date_field :day , class:"form-control"%>
+  </div>
 
   <div class="form-group">
     <%= f.label :goal %><br>
@@ -30,6 +34,10 @@
   <div class="form-group">
     <%= f.label :regret %><br>
     <%= f.text_field :regret , class:"form-control"%>
+  </div>
+  <div class="form-group">
+<%= f.label :image %>
+<%= f.file_field :image, class:"form-control"%>
   </div>
   <div class="form-group">
     <%= f.submit class:"btn btn-primary"%>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   resources :goaltemplates
   resources :days
   devise_for :users

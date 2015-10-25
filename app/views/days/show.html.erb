@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 <div class="form-control">
+On <% =@day.day %>
+<div class="form-control">
 <p>
   <strong>Goal:</strong>
   <%= @day.goal %>
@@ -28,5 +30,8 @@
   <%= @day.regret %>
 </p>
 
-<%= link_to 'Edit', edit_day_path(@day) %> |
+<%= image_tag @day.image.url(:medium) %>
+<% if @day.user == current_user %>
+<%= link_to 'Edit', edit_day_path(@day) %>
+<% end %>
 <%= link_to 'Back', days_path %>

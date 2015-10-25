@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <h1>Days</h1>
 
 <table>
@@ -17,19 +16,26 @@
   <tbody>
     <% @days.each do |day| %>
       <tr>
+        <td><%= day.day %></td>
         <td><%= day.goal %></td>
         <td><%= day.good %></td>
         <td><%= day.bad %></td>
         <td><%= day.actions %></td>
         <td><%= day.regret %></td>
         <td><%= link_to 'Show', day %>&nbsp;</td>
+        <% if day.user == current_user %>
         <td><%= link_to 'Edit', edit_day_path(day) %>&nbsp;</td>
         <td><%= link_to 'Destroy', day, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <% end %>
+        <td><%= day.user.email if day.user %>
+</td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<% if user_signed_in? %>
 <%= link_to 'New Day', new_day_path %>
+<% end %>
