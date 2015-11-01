@@ -6,7 +6,7 @@ before_action :current_user, only: [:edit, :update, :destroy]
   # GET /days
   # GET /days.json
   def index
-    @days = Day.all
+    @days = Day.all.order("created_at DESC")
   end
 
   # GET /days/1
