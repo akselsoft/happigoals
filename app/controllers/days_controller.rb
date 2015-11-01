@@ -6,7 +6,7 @@ before_action :current_user, only: [:edit, :update, :destroy]
   # GET /days
   # GET /days.json
   def index
-    @days = Day.all.order("created_at DESC")
+    @days = Day.all.order("created_at DESC").paginate(:page => params[:page],:per_page=>4)
   end
 
   # GET /days/1

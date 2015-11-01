@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'bootstrap-sass'
 gem 'paperclip', '~> 4.2'
 gem 'masonry-rails', '~> 0.2.0'
+gem 'will_paginate','~> 3.0.5'
+gem 'will_paginate-bootstrap'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
