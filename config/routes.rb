@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   resources :goaltemplates
   resources :days
   devise_for :users
-  root "pages#home"
   get "about" => "pages#about"
+  root "days#index"
   # get 'pages/home'
 
   # The priority is based upon order of creation: first created -> highest priority.

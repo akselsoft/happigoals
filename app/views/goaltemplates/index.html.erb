@@ -1,29 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Goal Templates</h1>
+<h1>Goals</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Goal</th>
-      <th>Area</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
     <% @goaltemplates.each do |goaltemplate| %>
-      <tr>
-        <td><%= goaltemplate.goal %></td>
-        <td><%= goaltemplate.area %></td>
-        <td><%= link_to 'Show', goaltemplate %></td>
-        <td><%= link_to 'Edit', edit_goaltemplate_path(goaltemplate) %></td>
-        <td><%= link_to 'Destroy', goaltemplate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class="box panel">
+      <h2><%= goaltemplate.area %></h2>
+        <p><%= goaltemplate.goal %></p>
+        <%= link_to 'Show', goaltemplate %>
+        <%= link_to 'Edit', edit_goaltemplate_path(goaltemplate) %>
+        <%= link_to 'Destroy', goaltemplate, method: :delete, data: { confirm: 'Are you sure?' } %>
+    
+      </div>
     <% end %>
-  </tbody>
-</table>
+
 
 <br>
 
-<%= link_to 'New Template', new_goaltemplate_path %>
+<%= link_to 'New Goal', new_goaltemplate_path %>

@@ -1,31 +1,37 @@
+<%= render 'pages/home' unless user_signed_in? %>
 <p id="notice"><%= notice %></p>
 <h1>Days</h1>
 
 
-
-  <tbody>
-    <% @days.each do |day| %>
-    <div class="box">
-      On <%= day.day %> I wanted to <%= day.goal %>
-      <%= image_tag day.image.url(:medium) %>
-        <%= day.day %>
-        <%= day.goal %>
+<div id="days" class="transitions-enabled">
+    <%  
+    @days.each do |day| %>
+    <div class="box panel panel-default">
+    <%= link_to day.day,day %> Focus on <%= day.goal %> 
+      <%= link_to image_tag(day.image.url(:medium)),day if !day.image.blank?%><br>
+      <div class="panel-body">
         <%= day.good %>
-        <%= day.bad %>
+         <%= day.bad %>
         <%= day.actions %>
-        <%= day.regret %>
-        <%= link_to 'Show', day %>&nbsp;
+        <%= day.regret if !day.regret.blank?%> 
+       <!-- <%= link_to 'Show', day %> -->
         <% if day.user == current_user %>
-        <%= link_to 'Edit', edit_day_path(day) %>&nbsp;
-        <%= link_to 'Destroy', day, method: :delete, data: { confirm: 'Are you sure?' } %>
-
+          <div class="actions">
+          <%= link_to edit_day_path(day) do %>
+              <span class="glyphicon glyphicon-edit"></span>
+              Edit
+            <% end %>
+            <%= link_to day, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="glyphicon glyphicon-trash"></span>
+              Delete
+            <% end %>
+        
+          </div>
         <% end %>
-        <%= day.user.email if day.user %>
+
+      </div>
       </div>
     <% end %>
-
+</div>
 
 <br>
-<% if user_signed_in? %>
-<%= link_to 'New Day', new_day_path %>
-<% end %>

@@ -1,15 +1,20 @@
+<%= link_to 'Back',days_path %>
+<div class="row">
+ <div class="col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading center">
+
 <p id="notice"><%= notice %></p>
 On <%= @day.day %>
 <p>
-I wanted to <%= @day.goal %>
+I wanted to focus on <%= @day.goal %>
 </p>
-
-<div class="form-control">
+</div>
+<div class="panel-body">
 <p>
   <strong>Good:</strong>
   <%= @day.good %>
 </p>
-</div>
 
 <p>
   <strong>Bad:</strong>
@@ -26,8 +31,15 @@ I wanted to <%= @day.goal %>
   <%= @day.regret %>
 </p>
 
-<%= image_tag @day.image.url(:medium) %>
+<%= image_tag @day.image.url(:medium) if !@day.image.blank? %>
 <% if @day.user == current_user %>
 <%= link_to 'Edit', edit_day_path(@day) %>
 <% end %>
-<%= link_to 'Back', days_path %>
+<%= link_to edit_day_path(@day) do %>
+        <span class="glyphicon glyphicon-edit"></span>
+        Edit
+      <% end %>
+</div>
+</div>
+</div>
+</div>
