@@ -17,7 +17,10 @@
   </div>
   <div class="form-group">
     <%= f.label :area %><br>
-    <%= f.text_field :area, class:"form-control" %>
+
+<%= f.select :area, ["Business","Play","Career","Home","Personal"], {},
+  class:"form-control" %>
+    
   </div>
   <div class="actions">
     <%= f.submit class:"btn btn-primary"%>
