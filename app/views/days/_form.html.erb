@@ -17,7 +17,7 @@
 
   <div class="form-group">
     The primary goal was
-    <%= f.collection_select :goal, Goaltemplate.order(:goal),:goal,:goal, include_blank: true %> 
+    <%= f.collection_select( :goal, Goaltemplate.order(:goal),:goal,:goal, {include_blank: true} , {class:"form-control",width:"50%"} )  %> 
      <%= link_to 'New Goal', new_goaltemplate_path %>
    
   </div>
@@ -31,7 +31,7 @@
   </div>
   <div class="form-group">
     <%= f.label :actions %><br>
-    <%= f.text_field :actions , class:"form-control"%>
+    <%= f.text_area :actions , rows:5 , class:"form-control"%>
   </div>
   <div class="form-group">
     The regret that came to mind was<br>
